@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * product controller.
@@ -36,5 +38,15 @@ public class ProductController {
         product.setName("iphone");
         product.setPrice(new BigDecimal(5100.0));
         return product;
+    }
+
+    /**
+     * 获取用户名.
+     *
+     * @return
+     */
+    @GetMapping("/user")
+    public List<String> getUserNameList() {
+        return Arrays.asList("lc-001", "lc-002", "lc-003");
     }
 }
