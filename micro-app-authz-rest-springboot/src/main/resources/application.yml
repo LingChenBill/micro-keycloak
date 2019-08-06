@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  connection-timeout: 5000
+spring:
+  application:
+    name: micro-app-authz-rest-springboot
+logging:
+  level:
+    root: INFO
+# keycloak config.
+keycloak:
+  realm: spring-boot-quickstart
+  auth-server-url: http://localhost:8180/auth
+  ssl-required: external
+  resource: app-authz-rest-springboot
+  bearer-only: true
+  credentials:
+    secret: secret
+  #public-client: true
+  #verify-token-audience: true
+  #use-resource-role-mappings: true
+  #confidential-port: 0
+  security-constraints[0]:
+    authRoles[0]: user
+    securityCollections[0]:
+      name: protected
+      patterns[0]: /*
+  policy-enforcer-config:
+    lazy-load-paths: true
+    paths[0]:
+      path: /api/admin
+#      claimInformationPointConfig:
+#        claims[some-claim]: {request.parameter['parameter-a']}
+
+

@@ -13,6 +13,8 @@
 		<module>micro-app-springboot</module>
 		<!--keycloak init project-->
         <module>micro-product-app</module>
+        <!--authz rest springboot-->
+        <module>micro-app-authz-rest-springboot</module>
 	</modules>
 
 </project>
