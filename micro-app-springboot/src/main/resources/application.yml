@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: micro-keycloak
+    name: micro-app-springboot
 #  jpa:
 #    generate-ddl: false
 #    show-sql: true
@@ -23,30 +23,6 @@ spring:
 logging:
   level:
     root: INFO
-#    org.hibernate: INFO
-#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-#    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-# actuator info监控信息配置。
-info:
-  app:
-    name: @project.artifactId@
-    encoding: @project.build.sourceEncoding@
-    java:
-      source: @java.version@
-# eureka config。
-#eureka:
-#  client:
-#    service-url:
-#      # 将应用注册到Eureka Server集群上。
-#      # defaultZone: http://localhost:8761/eureka/
-#      # defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
-#      # 将微服务注册到需认证的Eureka server上。
-#      # defaultZone: http://user:password123@peer1:8761/eureka/,http://peer2:8762/eureka/
-#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
-#  instance:
-#    # 表示将自己的IP注册到Eureka server。
-#    prefer-ip-address: true
-
 # keycloak config.
 #keycloak:
 #  realm: SpringBoot
@@ -61,3 +37,12 @@ info:
 #    authRoles[0]: role-p
 #    securityCollections[0]:
 #      patterns[0]: /
+keycloak:
+  realm: SpringBoot
+  auth-server-url: http://localhost:8180/auth
+  ssl-required: external
+  resource: product-app
+  public-client: true
+product:
+  service:
+    url: http://localhost:8081/products

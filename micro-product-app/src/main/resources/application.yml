@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: micro-product-app
+logging:
+  level:
+    root: INFO
+# keycloak config.
+keycloak:
+  realm: SpringBoot
+  auth-server-url: http://localhost:8180/auth
+  ssl-required: external
+  resource: product-app
+  public-client: true
+  verify-token-audience: true
+  use-resource-role-mappings: true
+  confidential-port: 0
+  security-constraints[0]:
+    authRoles[0]: role-p
+    securityCollections[0]:
+      patterns[0]: /
+
